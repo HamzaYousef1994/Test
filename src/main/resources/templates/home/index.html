@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta content="eQueue, equeue, eq, eQ, equeue jordan, eQueue jordan, eq jordan, eQ jordan, eq jo, eQ jo, eq-jo, eQ-jo"
+          name="keywords">
+
+    <meta content="Give your Customers the Ability to Access
+    your Services Without Having them Physically Waiting in Line." name="description">
+
+    <title>eQueue</title>
+
+    <!-- Favicons -->
+    <link href="/assets/home/img/favicon.png" rel="icon">
+    <link href="/assets/home/img/favicon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/lib/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="/lib/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/aos/aos.css" rel="stylesheet">
+    <link href="/lib/slick/css/slick.css" rel="stylesheet">
+    <link href="/lib/slick/css/slick-theme.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/home/css/style.css" rel="stylesheet">
+    <link href="/assets/home/css/main.css" rel="stylesheet">
+
+    <style th:if="${#locale.toString()=='ar'}" type="text/css">
+
+        .nav-menu a, #hero .btn-get-started, .search-box form input {
+            font-size: 1.1rem !important;
+        }
+
+        .fontAr {
+            font-size: 1.1rem !important;
+        }
+
+        .nav-item a, .contact label, button {
+            font-size: 1.1rem !important;
+        }
+
+    </style>
+
+
+    <script type="text/javascript">
+        function imgError(image) {
+            image.outerHTML = "<i class='bx bxs-bank'></i>";
+        }
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header class="fixed-top " id="header">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a>eQueue</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="" class="logo mr-auto"><img src="/HomeController-assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+
+            <ul th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}">
+
+
+                <li class="active">
+                    <a href="#hero"
+                       th:text="${#locale.toString()=='en' ? 'Home': 'الرئيسية' }">
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#About"
+                       th:text="${#locale.toString()=='en' ? about.titleEn : about.titleAr }">
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#Organizations"
+                       th:text="${#locale.toString()=='en' ? organizations.titleEn : organizations.titleAr }">
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#contact"
+                       th:text="${#locale.toString()=='en' ? contact.titleEn : contact.titleAr }">
+                    </a>
+                </li>
+
+
+                <li class="ml-lg-4" th:if="${#locale.toString()=='en'}">
+                    <a class="langAr" href="/home?lang=ar">
+                        <b>العربية</b>
+                    </a>
+                </li>
+
+
+                <li class="mr-lg-4" th:if="${#locale.toString()=='ar'}">
+                    <a class="langEn" href="/home?lang=en">
+                        English
+                    </a>
+                </li>
+
+
+                <li>
+                    <a data-target="#howItWorks" data-toggle="modal" href="#hero" title="How it Works">
+                        <i class="icofont-info-circle"></i>
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>
+        <!-- .nav-menu -->
+
+
+    </div>
+</header>
+<!-- End Header -->
+
+
+<main id="main">
+
+
+    <!-- ======= Hero Section ======= -->
+    <section class="d-flex align-items-center" id="hero">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                     data-aos="fade-up" data-aos-delay="200">
+
+                    <h1 th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                        th:text="${#locale.toString()=='en' ? home.titleEn : home.titleAr }">
+                    </h1>
+
+                    <h2 th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                        th:text="${#locale.toString()=='en' ? home.briefEn : home.briefAr }">
+                    </h2>
+
+                    <div class="d-lg-flex">
+                        <a class="btn-get-started scrollto" href="#Organizations"
+                           th:text="${#locale.toString()=='en' ? 'Get Started': 'ابدأ الآن'}">
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                    <img alt="" class="img-fluid animated" src="/assets/home/img/hero-img.png">
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- End Hero -->
+
+
+    <!-- ======= About eQueue  Section ======= -->
+    <section class="about" id="About">
+        <div class="container" data-aos="fade-up">
+
+
+            <div class="section-title">
+
+                <h2 th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                    th:text="${#locale.toString()=='en' ? about.titleEn : about.titleAr }">
+                </h2>
+
+                <pre th:class="${#locale.toString()=='en' ? 'text-left' : 'fontAr text-right'}"
+                     th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                     th:text="${#locale.toString()=='en' ? about.briefEn : about.briefAr }">
+                </pre>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End Services  Section -->
+
+
+    <!-- ======= Organizations Section ======= -->
+    <section class="services section-bg" id="Organizations">
+
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+
+                <h2 th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                    th:text="${#locale.toString()=='en' ? organizations.titleEn : organizations.titleAr }">
+                </h2>
+
+                <pre th:class="${#locale.toString()=='en' ? 'text-left' : 'fontAr text-right'}"
+                     th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                     th:text="${#locale.toString()=='en' ? organizations.briefEn : organizations.briefAr }">
+                </pre>
+
+
+            </div>
+
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="search-box">
+                        <form>
+                            <input id="searchInput" name="orgName" type="text">
+                            <input id="searchSubmit" th:value="${#locale.toString()=='en' ? 'Search' : 'بحث'}"
+                                   type="button">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mx-auto mt-5">
+
+
+                <div class="row" th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl' }">
+
+                    <ul class="nav nav-pills justify-content-center mb-2 p-0" id="pills-tab" role="tablist">
+
+                        <li class="nav-item mb-2" th:each="category,i : ${categories}">
+
+                            <a aria-selected="true"
+                               data-toggle="pill" role="tab"
+                               th:aria-controls="'pills-'+${category.nameEn}"
+                               th:class="${i.index == 0 ? 'nav-link active' : 'nav-link'}"
+                               th:href="'#pills-'+${category.nameEn}"
+                               th:id="'pills-'+${category.nameEn}+'-tab'"
+                               th:text="${#locale.toString()=='en' ? category.nameEn : category.nameAr }">
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tab-content" id="pills-tabContent">
+
+
+                <div role="tabpanel"
+                     th:aria-labelledby="'pills-'+${categoryItem.nameEn}+'-tab'"
+                     th:class="${j.index == 0 ? 'tab-pane fade show active ' : 'tab-pane fade show' }"
+                     th:each="categoryItem,j  : ${categories}"
+                     th:id="'pills-'+${categoryItem.nameEn}">
+
+
+                    <div class="row d-flex justify-content-center">
+
+                        <div class="col-xl-3 col-md-6 mt-5 orgItem"
+                             data-aos="zoom-in" data-aos-delay="100"
+                             th:each="orgItem : ${categoryItem.organizations} ">
+
+                            <a class="w-100" th:href="${orgItem.url}">
+                                <div class="icon-box text-center ">
+
+                                    <div class="d-flex mb-2 justify-content-center">
+
+                                        <img class='bx' height="80px" onerror="imgError(this)"
+                                             th:src="${orgItem.url}+'/Logo-Dir/org-logo.png'"
+                                             width="180px">
+
+                                    </div>
+
+                                    <h4 class="orgName"
+                                        th:text="${#locale.toString()=='en' ? orgItem.nameEn : orgItem.nameAr }"></h4>
+
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+    <!-- End Organizations Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2 th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                    th:text="${#locale.toString()=='en' ? contact.titleEn : contact.titleAr }">
+                </h2>
+
+                <p class="fontAr" th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                   th:text="${#locale.toString()=='en' ? contact.briefEn : contact.briefAr }">
+                </p>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-lg-5 d-flex align-items-stretch">
+
+                    <div class="info">
+
+
+                        <div class="address">
+
+                            <i class="icofont-google-map"></i>
+
+                            <h4 th:text="${#locale.toString()=='en' ? 'Location' : 'الموقع'}"></h4>
+
+                            <p th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}"
+                               th:text="${#locale.toString()=='en' ?  eqInfo.addressEn : eqInfo.addressAr }">
+                            </p>
+
+                        </div>
+
+
+                        <div class="email">
+                            <i class="icofont-envelope"></i>
+                            <h4 th:text="${#locale.toString()=='en' ? 'Email' : 'البريد الالكتروني'}"></h4>
+                            <p><a th:href="'mailto:'+${eqInfo.email}" th:text="${eqInfo.email}"></a></p>
+                        </div>
+
+
+                        <div class="phone">
+                            <i class="icofont-phone"></i>
+                            <h4 th:text="${#locale.toString()=='en' ? 'Call' : 'الهاتف'}"></h4>
+                            <p><a th:href="'tel:'+${eqInfo.phone}" th:text="${eqInfo.phone}"></a></p>
+                        </div>
+
+
+                        <iframe allowfullscreen
+                                style="border:0; width: 100%; height: 290px;" th:src="${eqInfo.map}">
+                        </iframe>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                    <form action="/send-message" class="email-form" id="email-form" method="post" role="form">
+
+                        <div th:class="${#locale.toString()=='en' ? 'text-left' : 'text-right'}"
+                             th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name"
+                                           th:text="${#locale.toString()=='en' ? 'Your Name' : 'الاسم' }"></label>
+                                    <input class="form-control" data-msg="Please enter at least 4 chars"
+                                           data-rule="minlen:4"
+                                           id="name" name="name" required
+                                           type="text"/>
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name"
+                                           th:text="${#locale.toString()=='en' ? 'Your Email' : 'البريد الالكتروني' }"></label>
+                                    <input class="form-control" data-msg="Please enter a valid email" data-rule="email"
+                                           id="email"
+                                           name="email" required
+                                           type="email"/>
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"
+                                       th:text="${#locale.toString()=='en' ? 'Subject' : 'الموضوع' }"></label>
+                                <input class="form-control" data-msg="Please enter at least 8 chars of subject"
+                                       data-rule="minlen:4"
+                                       id="subject" name="subject" required
+                                       type="text"/>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"
+                                       th:text="${#locale.toString()=='en' ? 'Message' : 'الرسالة' }"></label>
+                                <textarea class="form-control" data-msg="Please write something for us"
+                                          data-rule="required"
+                                          name="message"
+                                          required
+                                          rows="10"
+                                          style="resize:none"></textarea>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+
+                            <div class="text-center">
+
+                                <div class="g-recaptcha"
+                                     data-callback='onSubmit'
+                                     data-size="invisible"
+                                     th:data-sitekey="${@environment.getProperty('recaptcha.siteKey')}">
+                                </div>
+
+                                <button id="submitButton"
+                                        th:text="${#locale.toString()=='en' ? 'Send Message' : 'أرسال' }">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End Contact Section -->
+
+
+</main>
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Copyright <strong><span>eQueue</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer>
+<!-- End Footer -->
+
+
+<a class="back-to-top" href="#">
+    <i class="ri-arrow-up-line"></i>
+</a>
+
+<div id="preloader"></div>
+
+
+<!--============================================= How it Works ======================================================-->
+
+<div aria-hidden="true" aria-labelledby="howItWorksTitle" class="modal fade" id="howItWorks"
+     role="dialog" tabindex="-1">
+
+    <div class="modal-dialog modal-lg" role="document">
+
+        <div class="modal-content" th:dir="${#locale.toString()=='en' ? 'ltr' : 'rtl'}">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title px-2" id="howItWorksTitle"
+                    th:style="${#locale.toString()=='ar' ? 'text-align: right' : '' }"
+                    th:text="${#locale.toString()=='en'? howItWorks.titleEn : howItWorks.titleAr}">
+                </h5>
+
+            </div>
+
+            <div class="modal-body p-4">
+
+                <pre th:style="${#locale.toString()=='ar' ? 'text-align: right;white-space: pre-wrap;' : 'white-space: pre-wrap;' }"
+                     th:text="${#locale.toString()=='en'? howItWorks.briefEn : howItWorks.briefAr}">
+                </pre>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary px-4"
+                        data-dismiss="modal" th:text="${#locale.toString()=='en'? 'Close' : 'أغلاق'}" type="button">
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- lib JS Files -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/lib/jquery.easing/jquery.easing.min.js"></script>
+<script src="/lib/waypoints/jquery.waypoints.min.js"></script>
+<script src="/lib/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/lib/venobox/venobox.min.js"></script>
+<script src="/lib/owl.carousel/owl.carousel.min.js"></script>
+<script src="/lib/aos/aos.js"></script>
+<script src="/lib/slick/js/slick.min.js"></script>
+
+
+<!-- Template Main JS File -->
+<script src="/assets/home/js/main.js"></script>
+
+
+<script>
+
+    jQuery(document).ready(function () {
+        var commentForm = jQuery("#email-form");
+        commentForm.on("click", "#submitButton", function (e) {
+            if (commentForm[0].checkValidity()) {
+                e.preventDefault();
+                grecaptcha.execute();
+            }
+        });
+    });
+
+    function onSubmit(token) {
+        document.getElementById("email-form").submit();
+    }
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#searchSubmit").on("click", function () {
+            var value = $("#searchInput").val().toLowerCase();
+            $(".orgItem").filter(function () {
+                $(this).toggle($(this).find('.orgName').text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>

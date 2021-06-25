@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <link href="/assets/dashboard/img/favicon.png" rel="apple-touch-icon" sizes="76x76">
+    <link href="/assets/dashboard/img/favicon.png" rel="icon" type="image/png">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <title>
+        eQueue - Dashboard
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
+    <!--     Fonts and icons     -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+          rel="stylesheet"
+          type="text/css"/>
+
+    <link href="/lib/pagination/css/simple-pagination.css" rel="stylesheet"/>
+
+    <!-- CSS Files -->
+    <link href="/assets/dashboard/css/material-dashboard.css" rel="stylesheet"/>
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+
+    <link href="/lib/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div class="wrapper ">
+    <div class="sidebar" data-background-color="white" data-color="purple"
+         data-image="/assets/dashboard/img/sidebar.jpg">
+
+        <div class="logo"><span class="simple-text logo-normal">
+          eQueue
+        </span></div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/home-page">
+                        <i class="material-icons">home</i>
+                        <p>Home Page</p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/organizations">
+                        <i class="material-icons">apartment</i>
+                        <p>Organizations</p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">
+                        <i class="material-icons">phone_in_talk</i>
+                        <p>Contact</p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/profile">
+                        <i class="material-icons">person</i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/settings">
+                        <i class="material-icons">settings</i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/logout">
+                        <i class="material-icons">login</i>
+                        <p>Login</p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <a class="navbar-brand" href="">Organizations</a>
+                </div>
+                <button aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation"
+                        class="navbar-toggler"
+                        data-toggle="collapse" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                    <span class="navbar-toggler-icon icon-bar"></span>
+                </button>
+
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">Organizations List</h4>
+                            </div>
+                            <div class="card-body px-5">
+
+                                <div class="dropdown my-4">
+                                    <button aria-expanded="false" aria-haspopup="true"
+                                            class="btn btn-primary dropdown-toggle"
+                                            data-toggle="dropdown" id="dropdownMenuButton" type="button">
+                                        Categories
+                                    </button>
+
+                                    <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+                                        <a th:if="${categoryNames.size() > 0}"
+                                            class="dropdown-item" href="/organizations">All</a>
+                                        <a class="dropdown-item" th:each="categoryName :${categoryNames}"
+                                           th:href="'/organizations/'+${categoryName}"
+                                           th:text="${categoryName}"></a>
+                                    </div>
+
+                                </div>
+
+                                <div class=" list-wrapper table-responsive mb-4">
+                                    <table class="table">
+
+                                        <thead class=" text-primary">
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>URL</th>
+                                        <th>Edit</th>
+                                        </thead>
+
+                                        <tbody>
+
+                                        <tr class="list-item" th:each="organization:${organizations}">
+
+                                            <td th:text="${organization.id}"></td>
+                                            <td th:text="${organization.nameEn}"></td>
+                                            <td th:text="${organization.category.nameEn}"></td>
+
+                                            <td>
+                                                <a th:href="${organization.url}"
+                                                   th:text="${organization.url}">
+                                                </a>
+                                            </td>
+
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                   th:href="${'edit-organization/'+organization.id}">Edit</a>
+                                                <a class="btn btn-primary"
+                                                   th:onclick="|confirmRemove(${organization.id})|">Remove</a>
+                                            </td>
+
+                                        </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                                <div th:if="${organizations != null}">
+                                    <div class="row justify-content-center mt-3"
+                                         th:if="${ organizations.size() > 6}">
+                                        <div id="pagination-container"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="float-left">
+                    <ul>
+                    </ul>
+                </nav>
+                <div class="copyright">
+                    © Copyright <strong><span>eQueue</span></strong>. All Rights Reserved
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+
+<div class="fixed-plugin">
+    <div class="p-2">
+
+        <a href="/add-organization" title="Add Organization">
+            <i class="material-icons" style="font-size: 30px;color: #fff">add_circle_outline</i>
+        </a>
+
+        <hr>
+
+        <a href="/categories" title="Categories">
+            <i class="material-icons" style="font-size:30px;color: #fff">apps</i>
+        </a>
+
+    </div>
+</div>
+
+
+<!--===============================================  Remove Modal ===================================================-->
+
+
+<div aria-hidden="true" aria-labelledby="removeModalLabel" class="modal fade"
+     data-backdrop="static" id="removeModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center p-4">
+
+                <span class="lnr lnr-warning text-danger" style="font-size: 75px;"></span>
+                <h5 class="mt-4 text-danger"><b>Are you Sure you Want Remove this Organization ?</b></h5>
+
+            </div>
+            <div class="modal-footer">
+
+                <form action="/remove-organization" class="mb-0" method="post">
+
+                    <input id="orgID" name="orgID" readonly required type="hidden" value=""/>
+
+                    <button class="btn btn-primary" data-dismiss="modal" type="button">No</button>
+                    <button class="btn btn-danger" type="submit">Yes</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--   JS Files   -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/assets/dashboard/js/bootstrap-material-design.min.js"></script>
+<script src="/assets/dashboard/js/material-dashboard.min.js"></script>
+<script src="/lib/pagination/js/simple-pagination.js"></script>
+
+
+<script>
+
+    var items = $(".list-wrapper .list-item");
+    var numItems = items.length;
+    var perPage = 6;
+
+    items.slice(perPage).hide();
+
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
+
+</script>
+
+
+<script>
+    function confirmRemove(orgID) {
+        document.getElementById("orgID").value = orgID;
+        $(document).ready(function () {
+            $("#removeModal").modal('show');
+        });
+    }
+</script>
+
+
+</body>
+</html>

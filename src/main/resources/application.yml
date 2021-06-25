@@ -1,0 +1,24 @@
+#======================================= DataBase ==============================================#
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/equeue?createDatabaseIfNotExist=true&serverTimezone=Asia/Amman
+    username: root
+    password: 5502
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#======================================= reCaptcha =============================================#
+
+#recaptcha:
+#  siteKey: 6LfQmRkaAAAAABE7rFTUHofgaL1xSVs7ExUwzkBk
+#  secretKey: 6LfQmRkaAAAAAKSt0raGRT9U24g0si01CKeQu6kW
+#  url: https://www.google.com/recaptcha/api/siteverify
+
+#===============================================================================================#
+
+recaptcha:
+  siteKey: 6LdCKxkaAAAAANdyzuwrexrd2ZhunMf2uWsTkygY
+  secretKey: 6LdCKxkaAAAAALmPVrUeYzTxVDsI_8RvaC1Ia8kF
+  url: https://www.google.com/recaptcha/api/siteverify

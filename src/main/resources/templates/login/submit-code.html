@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>eQueue - Forgot Password</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!--===============================================================================================-->
+    <link href="/assets/home/img/favicon.png" rel="icon" type="image/png"/>
+    <!--===============================================================================================-->
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <link href="/lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <link href="/lib/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+    <link href="/assets/login/css/main.css" rel="stylesheet" type="text/css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-4 p-sm-5">
+
+            <form action="/code-check" class="login100-form validate-form" method="post">
+
+                <div class="mb-5">
+
+					<span class="login100-form-title">
+                        Reset Password
+					</span>
+
+                </div>
+
+                <div>
+                    <input hidden name="email" readonly required th:value="${email}" type="email">
+                </div>
+
+                <div class="wrap-input100 validate-input mb-4" data-validate="Code is Required">
+                    <input class="input100" name="code" placeholder="Code" type="tel">
+                    <span class="focus-input100-1"></span>
+                    <span class="focus-input100-2"></span>
+                </div>
+
+                <div class="row" th:if="${incorrectCode}">
+                    <div class="col d-flex align-items-center">
+                        <span class="lnr lnr-cross-circle text-danger mr-2 ml-3"></span>
+                        <h6 class="text-danger p-0 m-0">Incorrect Code</h6>
+                    </div>
+                </div>
+
+
+                <div class="container-login100-form-btn m-t-20">
+                    <button class="form-btn btn btn-primary mb-4" type="submit">
+                        Submit
+                    </button>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<!--===============================================================================================-->
+<script src="/lib/jquery/jquery.min.js"></script>
+<!--===============================================================================================-->
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/assets/login/js/main.js"></script>
+
+</body>
+</html>

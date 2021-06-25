@@ -1,0 +1,187 @@
+/*--------------------------------------------------------------
+ search-box
+--------------------------------------------------------------*/
+
+.search-box {
+    margin-top: 30px;
+    background: #fff;
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 50px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.06);
+    text-align: left;
+}
+
+.search-box  input[type="text"] {
+    border: 0;
+    padding: 4px 8px;
+    width: calc(100% - 100px);
+}
+
+.search-box  input[type="button"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 0;
+    background: none;
+    font-size: 16px;
+    padding: 0 20px;
+    background: #47b2e4;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 50px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-box  input[type="button"]:hover {
+    background: #209dd8;
+}
+
+
+.contact .email-form button {
+    background: #47b2e4;
+    border: 0;
+    padding: 12px 34px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.contact .email-form button:hover {
+    background: #209dd8;
+}
+
+
+/*--------------------------------------------------------------*/
+
+.logo a {
+    text-transform: none !important;
+    font-size: 2.6rem !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: #47b2e4 !important;
+    border-radius: 50px;
+}
+
+.services .icon-box {
+    height: 200px !important;
+}
+
+.services .icon-box h4 {
+    font-size: 20px !important;
+    word-wrap: break-word;
+}
+
+.services .icon-box .icon {
+    text-align: center !important;
+}
+
+section {
+    padding: 100px 0 !important;
+}
+
+.section-title h2 {
+    text-transform: unset !important;
+}
+
+.langAr {
+    color: #47b2e4 !important;
+    font-size: 17px !important;
+}
+
+.langEn {
+    color: #47b2e4 !important;
+}
+
+
+.slick-prev:before, .slick-next:before {
+    color: #47b2e4 !important;
+
+}
+
+.slick-prev {
+    left: 0 !important;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+
+}
+
+.slick-next {
+    z-index: 1;
+    right: 0 !important;
+    width: 25px;
+    height: 25px;
+}
+
+
+.slick-dots li.slick-active button:before {
+    color: #47b2e4 !important;
+}
+
+
+.icofont-info-circle {
+    color: #47b2e4 !important;
+    font-size: 1.5rem !important;
+}
+
+@media (max-width: 991px) {
+
+    .icofont-info-circle {
+        font-size: 2.3rem !important;
+    }
+
+}
+
+
+.bxs-bank::before {
+
+    content: "\ec74";
+
+}
+
+*, ::after, ::before {
+
+    box-sizing: border-box;
+
+}
+
+.bx {
+    font-size: 3.5rem !important;
+    height: 80px;
+}
+
+#email-form label {
+    color: #37517e;
+}
+
+
+pre {
+    font-size: 1rem;
+}
+
+
+.back-to-top {
+    bottom: 85px !important;
+}
+
+
+.services .icon-box h4 {
+    color: #37517e;
+    transition: ease-in-out 0.3s;
+}
+
+
+a.nav-link {
+    color: #37517e;
+}
+
+
+pre{
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    white-space: pre-wrap;
+}
