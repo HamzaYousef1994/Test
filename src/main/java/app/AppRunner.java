@@ -77,6 +77,7 @@ public class AppRunner implements CommandLineRunner {
             sectionRepo.save(organizations);
             sectionRepo.save(contact);
             sectionRepo.save(howItWorks);
+            
 
         }
 
